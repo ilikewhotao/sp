@@ -2,15 +2,6 @@
 
 <template>
   <n-h1> 斯普拉遁3 🏆小白杯 </n-h1>
-  <n-p> 本活动由小白独家赞助💰 </n-p>
-  <n-p>活动奖励为《斯普拉遁3》amiibo手办任选一个</n-p>
-  <div style="max-width: 750px; margin: 0 auto">
-    <img
-      style="display: block; width: 100%"
-      src="../assets/img/img.jpg"
-      alt=""
-    />
-  </div>
 
   <n-h3>报名流程</n-h3>
   <n-p> 需要玩家提供SW码以及游戏昵称。（比赛期间尽量不要修改昵称） </n-p>
@@ -37,11 +28,22 @@
     <n-li>失败组 每人-1分</n-li>
   </n-ul>
   <n-p>如果存在玩家掉线，导致游戏中断或继续，本次对局都视为无效。</n-p>
-  
+
   <n-h3>最终得分</n-h3>
   <n-p
     >最终会从玩家所有对局中随机选出20局，合计得出最终得分。（不满20局的，剩余场次均按照失败计算）</n-p
   >
+
+  <n-h3>活动奖励</n-h3>
+  <n-p> 本活动由小白独家赞助💰 </n-p>
+  <n-p>活动奖励为《斯普拉遁3》amiibo手办任选一个</n-p>
+  <div style="max-width: 750px; margin: 0 auto">
+    <img
+      style="display: block; width: 100%"
+      src="../assets/img/img.jpg"
+      alt=""
+    />
+  </div>
 </template>
 
 <style scoped></style>
