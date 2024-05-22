@@ -1,0 +1,5 @@
+@import './base.css';
+
+#app>div {
+  height: 100vh;
+}
