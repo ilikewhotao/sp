@@ -4,7 +4,12 @@ import { computed } from 'vue'
 </script>
 
 <template>
-  <n-p>参赛人数：{{ users.length }}</n-p>
+  <n-alert title="注意" type="warning" closable>
+    昵称为《斯普拉遁3》游戏内的昵称，请仔细检查昵称是否存在错误，这会影响到对局结算计分。
+  </n-alert>
+  <n-p
+    >参赛人数：<span style="font-size: 24px">{{ users.length }}</span>人</n-p
+  >
   <n-table :bordered="false" :single-line="false">
     <thead>
       <tr>

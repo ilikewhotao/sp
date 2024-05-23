@@ -14,6 +14,7 @@ declare module 'vue' {
     IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']
     IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
+    NAlert: typeof import('naive-ui')['NAlert']
     NH1: typeof import('naive-ui')['NH1']
     NH3: typeof import('naive-ui')['NH3']
     NInput: typeof import('naive-ui')['NInput']
