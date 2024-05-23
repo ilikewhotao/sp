@@ -21,10 +21,9 @@ const createColumns = (): DataTableColumns<User> => {
     }
   ]
 }
+const columns = createColumns()
 
 const emojis = ['🦑', '🐙']
-
-const columns = createColumns()
 const userData = users.map((item) => {
   const emoji = emojis[Math.floor(Math.random() * 2)]
   return {
@@ -36,7 +35,7 @@ const userData = users.map((item) => {
 
 <template>
   <n-alert title="注意" type="warning">
-    昵称为《斯普拉遁3》游戏内的昵称，请仔细检查昵称是否存在错误，这会影响到对局结算计分。
+    游戏名称为《斯普拉遁3》游戏内的昵称，请仔细检查游戏名称是否存在错误，这会影响到对局结算计分。
   </n-alert>
   <n-p
     >参赛总人数：<span style="font-size: 24px">{{ users.length }}</span
@@ -46,6 +45,7 @@ const userData = users.map((item) => {
     :columns="columns"
     :data="userData"
     :bordered="false"
+    :single-line="false"
     :scroll-x="400"
   />
 </template>

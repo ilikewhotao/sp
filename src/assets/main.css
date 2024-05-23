@@ -1,5 +1,5 @@
 @import './base.css';
 
-#app>div {
+#app .wrapper {
   height: 100vh;
 }
