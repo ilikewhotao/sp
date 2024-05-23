@@ -1,5 +1,18 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: normal;
+  src: url("./font/JetBrainsMono-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: bold;
+  src: url("./font/JetBrainsMono-Bold.woff2") format("woff2");
+}
+
+
 * {
-  font-family: JetBrains Mono, "阿里巴巴普惠体 3.0";
+  font-family: "JetBrains Mono", "阿里巴巴普惠体 3.0";
 }
 
 h1,
