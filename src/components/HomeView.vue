@@ -40,7 +40,7 @@
   <div style="max-width: 750px; margin: 0 auto">
     <img
       style="display: block; width: 100%"
-      src="../assets/img/img.jpg"
+      src="https://img2.imgtp.com/2024/05/23/9kGGvZ01.jpg"
       alt=""
     />
   </div>
