@@ -1,6 +1,38 @@
 <script setup lang="ts">
 import users from '@/assets/data/user.json'
-import { computed } from 'vue'
+import type { DataTableColumns } from 'naive-ui'
+
+
+type User = {
+  sw: string
+  name: string
+  nickname: string
+}
+
+const createColumns = (): DataTableColumns<User> => {
+  return [
+    {
+      title: '昵称',
+      key: 'nickname'
+    },
+    {
+      title: '游戏名称',
+      key: 'name'
+    },
+    {
+      title: 'SW',
+      key: 'sw'
+    }
+  ]
+}
+
+const columns = createColumns()
+const userData = users.map((item) => {
+  return {
+    nickname: item.nickname || item.name,
+    ...item
+  }
+})
 </script>
 
 <template>
@@ -11,20 +43,12 @@ import { computed } from 'vue'
     >参赛总人数：<span style="font-size: 24px">{{ users.length }}</span
     >人</n-p
   >
-  <n-table :bordered="false" :single-line="false">
-    <thead>
-      <tr>
-        <th>SW码</th>
-        <th>昵称</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="user in users">
-        <td>SW{{ user.sw.replace(/(.{4})/g, '-$1') }}</td>
-        <td>{{ user.name }}</td>
-      </tr>
-    </tbody>
-  </n-table>
+  <n-data-table
+    :columns="columns"
+    :data="userData"
+    :bordered="false"
+    :scroll-x="480"
+  />
 </template>
 
 <style scoped></style>
