@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import users from '@/assets/data/user.json'
 import type { DataTableColumns } from 'naive-ui'
-
+import { isTemplateSpan } from 'typescript'
 
 type User = {
   sw: string
@@ -11,10 +11,6 @@ type User = {
 
 const createColumns = (): DataTableColumns<User> => {
   return [
-    {
-      title: '昵称',
-      key: 'nickname'
-    },
     {
       title: '游戏名称',
       key: 'name'
@@ -26,11 +22,14 @@ const createColumns = (): DataTableColumns<User> => {
   ]
 }
 
+const emojis = ['🦑', '🐙']
+
 const columns = createColumns()
 const userData = users.map((item) => {
+  const emoji = emojis[Math.floor(Math.random() * 2)]
   return {
-    nickname: item.nickname || item.name,
-    ...item
+    sw: item.sw,
+    name: item.name + (item.nickname ? ` ${emoji + item.nickname}` : '')
   }
 })
 </script>
@@ -47,7 +46,7 @@ const userData = users.map((item) => {
     :columns="columns"
     :data="userData"
     :bordered="false"
-    :scroll-x="480"
+    :scroll-x="400"
   />
 </template>
 
