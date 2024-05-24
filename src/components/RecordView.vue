@@ -1,45 +1,25 @@
 <script setup lang="ts">
-import { useUserStore } from '@/stores/user'
-import { useRecordStore } from '@/stores/record'
-import type { MentionOption } from 'naive-ui'
-import { storeToRefs } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, h, ref } from 'vue'
+import { NButton, type MentionOption } from 'naive-ui'
+import users from '@/assets/data/user.json'
+import records from '@/assets/data/record.json'
+import type { DataTableColumns } from 'naive-ui'
 
-// store
-const userStore = useUserStore()
-const recordStore = useRecordStore()
-
-type Record = {
-  datetime: string
-  score: {
-    win: string
-    lose: string
-  }
-  win: string[]
-  lose: string[]
-}
-
-// search
-const searchValue = ref('')
-const searchSW = computed(() => {
-  return searchValue.value.slice(
-    searchValue.value.indexOf('#') + 1,
-    searchValue.value.indexOf('#') + 18
-  )
-})
-const nameOptions = userStore.userData.map((item) => {
+const nameOptions = users.map((item) => {
   return {
     label: item.name,
     value: item.name + '#' + item.sw
   }
 })
-const swOptions = userStore.userData.map((item) => {
+const swOptions = users.map((item) => {
   return {
     label: item.sw,
     value: item.sw + '@' + item.name
   }
 })
+
 const optionsRef = ref<MentionOption[]>([])
+
 function handleSearch(_: string, prefix: string) {
   if (prefix === '@') {
     optionsRef.value = nameOptions
@@ -47,10 +27,23 @@ function handleSearch(_: string, prefix: string) {
     optionsRef.value = swOptions
   }
 }
+const searchValue = ref('')
+const searchSW = computed(() => {
+  return searchValue.value.slice(
+    searchValue.value.indexOf('#') + 1,
+    searchValue.value.indexOf('#') + 18
+  )
+})
 
-// list
+type Record = {
+  datetime: string
+  win: string[]
+  lose: string[]
+  result: string
+}
+
 const recordData = computed(() => {
-  return recordStore.recordData
+  return records
     .filter((item) => {
       return (
         item.win.includes(searchSW.value) || item.lose.includes(searchSW.value)
@@ -65,7 +58,7 @@ const recordData = computed(() => {
 })
 
 function swname(sw: string) {
-  return userStore.userData.find((item) => item.sw === sw)?.name
+  return users.find((item) => item.sw === sw)?.name
 }
 
 const showModal = ref(false)
@@ -121,19 +114,23 @@ function showModalFun(data: Record) {
   >
     <n-h3>WIN!</n-h3>
     <n-list bordered hoverable clickable>
-      <n-list-item v-for="item in searchData?.win">
-        <n-text :type="item === searchSW ? 'success' : 'default'">
-          {{ swname(item) }}
-        </n-text>
+      <n-list-item
+        v-for="item in searchData?.win"
+        :style="{
+          'background-color': item === searchSW ? '#edf7f2' : ''
+        }"
+      >
+        {{ swname(item) }}
       </n-list-item>
     </n-list>
 
     <n-h3>LOSE...</n-h3>
     <n-list bordered hoverable clickable>
-      <n-list-item v-for="item in searchData?.lose">
-        <n-text :type="item === searchSW ? 'success' : 'default'">
-          {{ swname(item) }}
-        </n-text>
+      <n-list-item
+        v-for="item in searchData?.lose"
+        :style="{ 'background-color': item === searchSW ? '#edf7f2' : '' }"
+      >
+        {{ swname(item) }}
       </n-list-item>
     </n-list>
   </n-modal>
