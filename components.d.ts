@@ -31,6 +31,7 @@ declare module 'vue' {
     NTabPane: typeof import('naive-ui')['NTabPane']
     NTabs: typeof import('naive-ui')['NTabs']
     NTag: typeof import('naive-ui')['NTag']
+    NText: typeof import('naive-ui')['NText']
     NUl: typeof import('naive-ui')['NUl']
     RecordView: typeof import('./src/components/RecordView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

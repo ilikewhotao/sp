@@ -113,24 +113,20 @@ function showModalFun(data: Record) {
     :bordered="false"
   >
     <n-h3>WIN!</n-h3>
-    <n-list bordered hoverable clickable>
-      <n-list-item
-        v-for="item in searchData?.win"
-        :style="{
-          'background-color': item === searchSW ? '#edf7f2' : ''
-        }"
-      >
-        {{ swname(item) }}
+    <n-list bordered>
+      <n-list-item v-for="item in searchData?.win">
+        <n-text :type="item === searchSW ? 'success' : 'default'">
+          {{ swname(item) }}
+        </n-text>
       </n-list-item>
     </n-list>
 
     <n-h3>LOSE...</n-h3>
-    <n-list bordered hoverable clickable>
-      <n-list-item
-        v-for="item in searchData?.lose"
-        :style="{ 'background-color': item === searchSW ? '#edf7f2' : '' }"
-      >
-        {{ swname(item) }}
+    <n-list bordered>
+      <n-list-item v-for="item in searchData?.lose">
+        <n-text :type="item === searchSW ? 'success' : 'default'">
+          {{ swname(item) }}
+        </n-text>
       </n-list-item>
     </n-list>
   </n-modal>
