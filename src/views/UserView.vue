@@ -43,7 +43,7 @@ const userData = UserStore.userData.map(item => {
   </n-alert>
   <n-p
     >参赛总人数：<span style="font-size: 24px">{{ userData.length }}</span
-    >人</n-p
+    ></n-p
   >
   <n-data-table
     :columns="columns"

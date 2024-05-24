@@ -12,7 +12,7 @@ const routerStore = useRouterStore()
 const { routerName } = storeToRefs(routerStore)
 
 const menu = [
-  { key: 'home', title: '小白杯' },
+  { key: 'home', title: '🏆小白杯' },
   { key: 'user', title: '参赛人员' },
   { key: 'record', title: '对局查询' },
   { key: 'result', title: '结果公示' }

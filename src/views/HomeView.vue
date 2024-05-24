@@ -21,6 +21,13 @@
   </n-ul>
 
   <n-divider />
+  <n-h3 prefix="bar"> 注意事项 </n-h3>
+  <n-ul>
+    <n-li>为了尽可能保持游戏的公平性，禁止使用“2024夏季赛”新更新的武器</n-li>
+    <n-li>禁止使用未报名的账号参与活动</n-li>
+  </n-ul>
+
+  <n-divider />
   <n-h3 prefix="bar"> 计分规则 </n-h3>
   <n-ul>
     <n-li>胜利组 每人+1分 </n-li>

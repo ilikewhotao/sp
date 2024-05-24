@@ -27,13 +27,13 @@ const searchSW = computed(() => {
     searchValue.value.indexOf('#') + 18
   )
 })
-const nameOptions = userStore.userData.map(item => {
+const nameOptions = userStore.userData.map((item) => {
   return {
     label: item.name,
     value: item.name + '#' + item.sw
   }
 })
-const swOptions = userStore.userData.map(item => {
+const swOptions = userStore.userData.map((item) => {
   return {
     label: item.sw,
     value: item.sw + '@' + item.name
@@ -51,12 +51,12 @@ function handleSearch(_: string, prefix: string) {
 // list
 const recordData = computed(() => {
   return recordStore.recordData
-    .filter(item => {
+    .filter((item) => {
       return (
         item.win.includes(searchSW.value) || item.lose.includes(searchSW.value)
       )
     })
-    .map(item => {
+    .map((item) => {
       return {
         result: item.win.includes(searchSW.value) ? 'win' : 'lose',
         ...item
@@ -65,7 +65,7 @@ const recordData = computed(() => {
 })
 
 function swname(sw: string) {
-  return userStore.userData.find(item => item.sw === sw)?.name
+  return userStore.userData.find((item) => item.sw === sw)?.name
 }
 
 const showModal = ref(false)
@@ -90,7 +90,7 @@ function showModalFun(data: Record) {
 
   <n-p
     >胜率统计：{{
-      recordData.filter(e => e?.result === 'win').length +
+      recordData.filter((e) => e?.result === 'win').length +
       '/' +
       recordData.length
     }}</n-p
@@ -122,24 +122,18 @@ function showModalFun(data: Record) {
     <n-h3>WIN!</n-h3>
     <n-list bordered hoverable clickable>
       <n-list-item v-for="item in searchData?.win">
-        <div style="display: flex; justify-content: space-between">
-          <span>
-            {{ swname(item) }}
-          </span>
-          <span v-if="item === searchSW"> 👈 </span>
-        </div>
+        <n-text :type="item === searchSW ? 'success' : 'default'">
+          {{ swname(item) }}
+        </n-text>
       </n-list-item>
     </n-list>
 
     <n-h3>LOSE...</n-h3>
     <n-list bordered hoverable clickable>
       <n-list-item v-for="item in searchData?.lose">
-        <div style="display: flex; justify-content: space-between">
-          <span>
-            {{ swname(item) }}
-          </span>
-          <span v-if="item === searchSW"> 👈 </span>
-        </div>
+        <n-text :type="item === searchSW ? 'success' : 'default'">
+          {{ swname(item) }}
+        </n-text>
       </n-list-item>
     </n-list>
   </n-modal>
