@@ -13,9 +13,11 @@ declare module 'vue' {
     IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']
     IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
+    MenuComponent: typeof import('./src/components/MenuComponent.vue')['default']
     NAlert: typeof import('naive-ui')['NAlert']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDataTable: typeof import('naive-ui')['NDataTable']
+    NDivider: typeof import('naive-ui')['NDivider']
     NH1: typeof import('naive-ui')['NH1']
     NH3: typeof import('naive-ui')['NH3']
     NLayout: typeof import('naive-ui')['NLayout']
@@ -33,6 +35,8 @@ declare module 'vue' {
     NTag: typeof import('naive-ui')['NTag']
     NUl: typeof import('naive-ui')['NUl']
     RecordView: typeof import('./src/components/RecordView.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     UserView: typeof import('./src/components/UserView.vue')['default']
   }
 }
